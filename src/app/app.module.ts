@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AboutUsComponent } from './views/about-us/about-us.component';
 import { ContactUsComponent } from './views/contact-us/contact-us.component';
+import { SecondPageComponent } from './views/second-page/second-page.component';
 
 @NgModule({
   declarations: [

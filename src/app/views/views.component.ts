@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import gsap from 'gsap';
-import anime from 'animejs/lib/anime.es.js'; // Import animejs library
+import ScrollTrigger from 'gsap/ScrollTrigger'; // Import ScrollTrigger
+import anime from 'animejs/lib/anime.es.js';
 
 @Component({
   selector: 'app-views',
@@ -15,8 +16,10 @@ export class ViewsComponent implements OnInit {
   toggleNav() {
     this.isNavOpen = !this.isNavOpen;
   }
+  
   constructor() {
     this.tl = gsap.timeline({ paused: true });
+    gsap.registerPlugin(ScrollTrigger);
   }
 
   openNav() {
@@ -30,7 +33,6 @@ export class ViewsComponent implements OnInit {
     }
   }
   
-
   animateOpenNav() {
     const mobileNav = document.getElementById("mb_nav");
     this.tl
@@ -50,14 +52,12 @@ export class ViewsComponent implements OnInit {
       .reverse();
   }
 
-
   ngOnInit(): void {
     this.openNav();
     
-    
     const textWrapper = document.querySelector(".title");
-    if (textWrapper) {
-      
+    const box = document.querySelector(".box");
+    if (textWrapper && box) {
       const innerHTML = textWrapper.textContent?.replace(
         /\S/g,
         "<span class='letter'>$&</span>"
@@ -83,8 +83,6 @@ export class ViewsComponent implements OnInit {
       gsap.to(".left", { width: "20vw", height: "26vw", x: "-20vw", y: "5vw", rotation: -10, duration: 2, ease: "expo.inOut", delay: 3.8 });
       gsap.to(".right", { width: "20vw", height: "26vw", x: "20vw", y: "5vw", rotation: 10, duration: 2, ease: "expo.inOut", delay: 3.8 });
 
-
-      // GSAP timeline for staggered animation
       const timeline = gsap.timeline();
       timeline.staggerFrom(
         [".menu > div", ".hero-container > div"],
