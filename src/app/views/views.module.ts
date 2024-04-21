@@ -4,6 +4,7 @@ import { ViewsComponent } from './views.component';
 import { ViewsRoutingModule } from './views-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 

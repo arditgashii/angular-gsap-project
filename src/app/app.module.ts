@@ -7,11 +7,13 @@ import { ViewsModule } from './views/views.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AboutUsComponent } from './views/about-us/about-us.component';
+import { ContactUsComponent } from './views/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
