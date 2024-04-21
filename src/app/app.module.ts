@@ -6,16 +6,19 @@ import { AppComponent } from './app.component';
 import { ViewsModule } from './views/views.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AboutUsComponent } from './views/about-us/about-us.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ViewsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

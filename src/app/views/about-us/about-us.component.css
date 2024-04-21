@@ -1,0 +1,51 @@
+.about-us-container {
+    height: 80vh;
+  }
+  
+  .about-us-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+    background-color: #ffedce;
+  }
+  
+  .card-body {
+    z-index: 1;
+    padding: 20px;
+  }
+  
+  .about-us-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    padding: 20px;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 991.98px) {
+    .about-us-container {
+        height: auto;
+    }
+  
+    .card-title {
+        font-size: 2rem;
+    }
+  
+    .card-text {
+        font-size: 1.1rem;
+    }
+  }
+  
