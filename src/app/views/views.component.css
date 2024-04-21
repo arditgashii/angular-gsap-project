@@ -1,0 +1,279 @@
+.wrapper-img {
+    overflow: hidden;
+    position: relative;
+    margin: 5% auto;
+    width: 50%;
+    height: 100vh;
+	
+  }
+  
+
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5%;
+}
+
+.box {
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.images {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.img {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	height: 400px;
+	background: black;
+}
+
+
+.left {
+
+	background-size: cover;
+	border-radius: 5%;
+}
+
+.right {
+	background-size: cover;
+	border-radius: 5%;
+}
+
+p {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #ffedcf;
+	font-family: "Voyage";
+	font-size: 280px;
+	font-weight: 500;
+	-webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+.title .letter {
+	display: inline-block;
+	line-height: 1em;
+}
+
+
+.sidebar-text {
+	font-family: "Monument Extended";
+	position: absolute;
+	top: 20%;
+	right: 0.4em;
+	transform: translate(-50%, -50%);
+	font-size: 40px;
+	color: transparent;
+	-webkit-text-stroke: 1px rgb(117, 113, 113);
+    }
+    
+    .projects {
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+	transform: translate(-50%, -50%);
+	text-transform: uppercase;
+	font-family: "Monument Extended";
+
+    }
+    
+    .img-nav {
+	position: absolute;
+	right: 10%;
+	bottom: 13%;
+	transform: translate(-50%, -50%);
+	text-transform: uppercase;
+	color: #000;
+	font-family: "Monument Extended";
+
+    }
+    
+    .next {
+	position: relative;
+	top: 40px;
+	left: 80px;
+	font-family: "Monument Extended";
+
+    }
+    
+    .title{
+        align-items: center;
+    }
+
+
+
+	/** styling nav button **/
+.nav_toggle {
+	z-index: 999;
+	position: relative;
+	display: inline-block;
+	margin: 15px;
+	color: white;
+	border: 1px solid white;
+	background-color: transparent;
+	padding: 5px;
+	height: 50px;
+	width: 100px;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+  }
+  .nav_toggle:hover {
+	background-color: white;
+	color: black;
+	cursor: pointer;
+  }
+  .nav_toggle.active {
+	color: white;
+	border-color: white;
+  }
+  .nav_toggle.active:hover {
+  background-color: white;
+  color: black;
+  }
+  
+  
+  /** styling mobile nav **/
+  .nav {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: #ffedce;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateY(-100%);
+	overflow-y:hidden;
+	overflow-x: hidden;
+  }
+  
+  .nav li {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	overflow: hidden;
+  }
+  .nav li a {
+	font-size: 50px;
+	line-height: 1.8;
+	display: inline-block;
+	color: black;
+	opacity: 0;
+	text-decoration: none;
+	transform: translateY(75px);
+  }
+  .nav li a:hover {
+	color: grey;
+  }
+  
+  .nav,
+  .menu-button {
+	position: fixed;
+	top: 0; right: 0;
+  }
+  
+  .menu-button {
+	z-index: 999;
+  }
+    
+
+
+    @media (max-width: 576px) {
+		
+        .title {
+			font-size: 70px;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			height: 100vh;
+			margin-top: 30%;
+        }
+
+		.row{
+			margin-top: 50%;
+		}
+
+      }
+    
+    
+      /* Medium devices (tablets, 768px and up) */
+	  @media screen and (min-width: 576px) and (max-width: 768px) {
+        .title {
+			font-size: 70px;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			height: 100vh;
+			margin-top: 10%;
+        }
+
+		.row{
+			margin-top: 40%;
+		}
+
+
+      }
+    
+      /* Large devices (desktops, 992px and up) */
+      @media screen and (min-width: 768px) and (max-width: 992px) {
+        .title {
+			font-size: 150px;
+			padding-bottom: 10%;
+        }
+
+		.row{
+			margin-top: 25%;
+		}
+
+
+      }
+    
+      /* Extra large devices (large desktops, 1200px and up) */
+      @media screen and (min-width: 992px) and (max-width: 1200px) {
+        .title {
+			font-size: 200px;
+			display: flex;
+			justify-content: center;
+			height: 100vh;
+        }
+
+		.row{
+			margin-top: 15%;
+		}
+
+
+      }
+    
+      /* Extra extra large devices (larger desktops, 1400px and up) */
+      @media (min-width: 1400px) {
+        .title {
+          font-size: 280px; /* Adjust the font size as needed */
+        }
+      }
