@@ -6,13 +6,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SecondPageComponent } from './second-page/second-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
     ViewsComponent,
-    SecondPageComponent
+    SecondPageComponent,
+    NavbarComponent
     ],
   imports: [
     CommonModule,

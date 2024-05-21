@@ -11,50 +11,17 @@ import anime from 'animejs/lib/anime.es.js';
 export class ViewsComponent implements OnInit {
 
   tl: gsap.core.Timeline;
-  isNavOpen: boolean = false;
 
-  toggleNav() {
-    this.isNavOpen = !this.isNavOpen;
-  }
+
   
   constructor() {
     this.tl = gsap.timeline({ paused: true });
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  openNav() {
-    this.animateOpenNav();
-    const navBtn = document.getElementById("nav");
-    if (navBtn) {
-      navBtn.onclick = (e) => {
-        this.tl.reversed(!this.tl.reversed());
-        navBtn.classList.toggle("active");
-      };
-    }
-  }
-  
-  animateOpenNav() {
-    const mobileNav = document.getElementById("mb_nav");
-    this.tl
-      .to(mobileNav, {
-        duration: 0.6,
-        ease: "sine",
-        y: 0
-      })
-      .set('body', { overflow: 'hidden' })
-      .to(".nav__link", {
-        opacity: 1,
-        ease: "power3.out",
-        y: 0,
-        duration: 0.8,
-        stagger: 0.2,
-      })
-      .reverse();
-  }
 
   ngOnInit(): void {
-    this.openNav();
-    
+    this.setupTitleAnimation();    
     const textWrapper = document.querySelector(".title");
     const box = document.querySelector(".box");
     if (textWrapper && box) {
@@ -76,12 +43,12 @@ export class ViewsComponent implements OnInit {
         delay: (el: HTMLElement, i: number) => 4800 + 40 * i,
       });
 
-      gsap.to(".box", { y: "-100vw", duration: 2.4, ease: "expo.inOut", delay: 1 });
+      gsap.to(".box", { y: "-100vw", x:"50vh", duration: 2.4, ease: "expo.inOut", delay: 1 });
       gsap.from("img", { scale: "0", duration: 4, ease: "expo.inOut", delay: 0 });
       gsap.to(".wrapper-img", { width: "25vw", height: "30vw", duration: 2.4, ease: "expo.inOut", delay: 3.6 });
       gsap.from(".img", { opacity: 0, duration: 0.4, ease: "expo.inOut", delay: 3.4 });
-      gsap.to(".left", { width: "20vw", height: "26vw", x: "-20vw", y: "5vw", rotation: -10, duration: 2, ease: "expo.inOut", delay: 3.8 });
-      gsap.to(".right", { width: "20vw", height: "26vw", x: "20vw", y: "5vw", rotation: 10, duration: 2, ease: "expo.inOut", delay: 3.8 });
+      gsap.to(".left", { width: "20vw", height: "26vw", x: "-18vw", y: "5vw", rotation: -10, duration: 2, ease: "expo.inOut", delay: 3.8 });
+      gsap.to(".right", { width: "20vw", height: "26vw", x: "18vw", y: "5vw", rotation: 10, duration: 2, ease: "expo.inOut", delay: 3.8 });
 
       const timeline = gsap.timeline();
       timeline.staggerFrom(
@@ -92,4 +59,23 @@ export class ViewsComponent implements OnInit {
       );
     }
   }
+
+  setupTitleAnimation() {
+    const titles = Array.from(document.querySelectorAll('.title')) as HTMLElement[];
+    
+    titles.forEach(title => {
+      gsap.to(title, {
+        scrollTrigger: {
+          trigger: title,
+          start: "100% 100%",
+          end: "40% top",
+          scrub: true
+        },
+        opacity: 0,
+        duration: 0.1,
+        ease: "none"
+      });
+    });
+  }
+
 }
