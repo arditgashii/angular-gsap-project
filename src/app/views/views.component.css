@@ -106,6 +106,10 @@
 	  }
 	  
 	  @media (max-width: 767px) {
+		.project-box.big.pbox-right {
+			height: 100%;
+		}
+
 		.hero-image.left,
 		.hero-image.right {
 		  margin: 10px 0; /* Adjust margin for better stacking */
@@ -338,11 +342,11 @@ section {
 .company-section {
   padding: 220px 0 0;
 }
-.compy-box {
-  padding: 0;
+.company {
+  padding: 0 0 0 10%;
 }
 .compy-box::before {
-  left: 30px;
+  left: 0px;
   top: -30px;
   position: absolute;
   content: "";
@@ -357,7 +361,7 @@ section {
   width: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 30%;
+  border-radius: 10%;
 }
 
 /* Designer */
@@ -733,7 +737,13 @@ section {
 	.project-content p {
 	  font-size: 8px;
 	  line-height: 13px;
+	  margin: 10%;
 	}
+
+	.project-content .bg-img {
+		width: 100%;
+		opacity: 0.5;
+	  }
 	.project-content .common-btn {
 	  padding: 1px 7px;
 	  margin-right: 14px;
@@ -760,8 +770,8 @@ section {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	width: 85%;
+	height: 85%;
 	opacity: 0;
   }
   
