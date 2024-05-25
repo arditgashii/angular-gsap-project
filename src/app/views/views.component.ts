@@ -21,6 +21,22 @@ export class ViewsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // slider
+
+   // Slider animation
+  const slides = document.querySelectorAll('.slider .slide');
+  const tlSlider = gsap.timeline({ repeat: -1, defaults: { duration: 1, ease: "power3.inOut" } });
+
+  slides.forEach((slide, i) => {
+    tlSlider.fromTo(slide, 
+      { autoAlpha: 0, scale: 0.5, rotation: -10 }, 
+      { autoAlpha: 1, scale: 1, rotation: 0, ease: "elastic.out(1, 0.8)" }
+    )
+    .to(slide, 
+      { autoAlpha: 0, scale: 0.5, rotation: 10, ease: "power2.inOut" }, 
+      "+=5"  // Show each slide for 2 seconds
+    );
+  });
 
     document.addEventListener("DOMContentLoaded", () => {
       const tl = gsap.timeline({ defaults: { duration: 2, ease: "power3.inOut" } });
