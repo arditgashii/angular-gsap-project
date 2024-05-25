@@ -4,18 +4,21 @@ import { ViewsComponent } from './views.component';
 import { ViewsRoutingModule } from './views-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { SecondPageComponent } from './second-page/second-page.component';
+import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
 @NgModule({
   declarations: [
     ViewsComponent,
-    SecondPageComponent,
-    NavbarComponent
-    ],
+    NavbarComponent,
+    FooterComponent,
+    ContactUsComponent,
+    AboutUsComponent
+        ],
   imports: [
     CommonModule,
     FormsModule,

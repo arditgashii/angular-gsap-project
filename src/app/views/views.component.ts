@@ -21,61 +21,342 @@ export class ViewsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.setupTitleAnimation();    
-    const textWrapper = document.querySelector(".title");
-    const box = document.querySelector(".box");
-    if (textWrapper && box) {
-      const innerHTML = textWrapper.textContent?.replace(
-        /\S/g,
-        "<span class='letter'>$&</span>"
-      );
-      if (innerHTML) {
-        textWrapper.innerHTML = innerHTML;
-      }
 
-      anime.timeline().add({
-        targets: ".title .letter",
-        translateY: [100, 0],
-        translateZ: 0,
-        opacity: [0, 1],
-        easing: "easeOutExpo",
-        duration: 2000,
-        delay: (el: HTMLElement, i: number) => 4800 + 40 * i,
+    document.addEventListener("DOMContentLoaded", () => {
+      const tl = gsap.timeline({ defaults: { duration: 2, ease: "power3.inOut" } });
+
+      // Animate the left image from the left
+      tl.from(".hero-image.left .wrapper-img", {
+        x: '-100%',
+        opacity: 0,
+        duration: 2.5,
+        ease: "power3.out"
       });
 
-      gsap.to(".box", { y: "-100vw", x:"50vh", duration: 2.4, ease: "expo.inOut", delay: 1 });
-      gsap.from("img", { scale: "0", duration: 4, ease: "expo.inOut", delay: 0 });
-      gsap.to(".wrapper-img", { width: "25vw", height: "30vw", duration: 2.4, ease: "expo.inOut", delay: 3.6 });
-      gsap.from(".img", { opacity: 0, duration: 0.4, ease: "expo.inOut", delay: 3.4 });
-      gsap.to(".left", { width: "20vw", height: "26vw", x: "-18vw", y: "5vw", rotation: -10, duration: 2, ease: "expo.inOut", delay: 3.8 });
-      gsap.to(".right", { width: "20vw", height: "26vw", x: "18vw", y: "5vw", rotation: 10, duration: 2, ease: "expo.inOut", delay: 3.8 });
-
-      const timeline = gsap.timeline();
-      timeline.staggerFrom(
-        [".menu > div", ".hero-container > div"],
-        2,
-        { opacity: 0, y: 30, ease: "expo.inOut" },
-        0.1
-      );
-    }
-  }
-
-  setupTitleAnimation() {
-    const titles = Array.from(document.querySelectorAll('.title')) as HTMLElement[];
-    
-    titles.forEach(title => {
-      gsap.to(title, {
-        scrollTrigger: {
-          trigger: title,
-          start: "100% 100%",
-          end: "40% top",
-          scrub: true
-        },
+      // Animate the right image from the right
+      tl.from(".hero-image.right .wrapper-img", {
+        x: '100%',
         opacity: 0,
-        duration: 0.1,
-        ease: "none"
+        duration: 2.5,
+        ease: "power3.out"
+      }, "-=2.5");
+
+      // Animate the center image scaling up
+      tl.from(".hero-image.center .wrapper-img", {
+        scale: 0,
+        opacity: 0,
+        duration: 4.5,
+        ease: "elastic.out(1, 0.5)"
+      }, "-=2.5");
+
+      // Animate the letters with rotation, opacity, and y-axis translation
+      tl.from(".letter", {
+        rotationY: 286,
+        opacity: 0,
+        duration: 0.2,
+        yPercent: -400,
+        stagger: 0.1,
+        ease: "Expo.easeOut"
+      }, "-=3");
+    });
+
+    // ScrollTrigger animations
+    gsap.utils.toArray('.container').forEach((container) => {
+      const containerElement = container as HTMLElement; // Type assertion to HTMLElement
+
+      ScrollTrigger.create({
+        trigger: containerElement,
+        start: "top top",
+        end: "+=1000", // Adjust this value based on your content height
+        onEnter: () => {
+          gsap.to(containerElement.querySelectorAll('.wrapper-img, .letter'), {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.inOut"
+          });
+        },
+        onLeaveBack: () => {
+          gsap.to(containerElement.querySelectorAll('.wrapper-img, .letter'), {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.inOut"
+          });
+        },
+        scrub: true,
       });
     });
+
+
+
+
+    // Second Animation
+    gsap.to(".container", {
+      scrollTrigger: {
+        trigger: ".container",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: true,
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1.5,
+    });
+    
+    // Additional animation for the text and image within the container
+    gsap.from("#headingBig", {
+      scrollTrigger: {
+        trigger: ".container",
+        start: "top 80%",
+        end: "top 60%",
+        scrub: true,
+      },
+      opacity: 0,
+      x: -100,
+      duration: 1,
+    });
+    
+    gsap.from("#headingSmall", {
+      scrollTrigger: {
+        trigger: ".container",
+        start: "top 75%",
+        end: "top 55%",
+        scrub: true,
+      },
+      opacity: 0,
+      x: -100,
+      duration: 1,
+      delay: 0.2,
+    });
+    
+    gsap.from("#headingText", {
+      scrollTrigger: {
+        trigger: ".container",
+        start: "top 70%",
+        end: "top 50%",
+        scrub: true,
+      },
+      opacity: 0,
+      x: -100,
+      duration: 1,
+      delay: 0.4,
+    });
+    
+    gsap.from("#bannerBigimg", {
+      scrollTrigger: {
+        trigger: ".container",
+        start: "top 65%",
+        end: "top 45%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 100,
+      duration: 1,
+    });
+
+// Company Section - Title
+gsap.set(".company-section .title, #compDescription", {
+  opacity: 0,
+  y: -200
+});
+gsap.to(".company-section .title, #compDescription", {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  ease: "power2.inOut",
+  scrollTrigger: {
+    trigger: ".company-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
+// Company section - Image
+gsap.set(".compy-box", {
+  opacity: 0,
+  scale: 0
+});
+gsap.to(".compy-box", {
+  duration: 1.6,
+  delay: 0.1,
+  opacity: 1,
+  scale: 1,
+  transformOrigin: "top right",
+  ease: "power2.inOut",
+  scrollTrigger: {
+    trigger: ".company-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
+// Designers section - Title
+gsap.set(".designer-section .title, #designDescription", {
+  y: -200,
+  opacity: 0
+});
+gsap.to(".designer-section .title, #designDescription", {
+  duration: 1.6,
+  y: 0,
+  opacity: 1,
+  ease: "power2.inOut",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".designer-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
+// Designer section - white border
+gsap.set(".box-border", {
+  opacity: 0,
+  scale: 0.6,
+  rotate: 15
+});
+gsap.to(".box-border", {
+  duration: 1.5,
+  opacity: 1,
+  scale: 1,
+  rotate: 0,
+  ease: "power.inOut",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".designer-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
+// Designer section - Image - left
+gsap.set(".team1, .team3", {
+  opacity: 0,
+  rotate: 45,
+  scale: 0.5
+});
+gsap.to(".team1, .team3", {
+  duration: 1.6,
+  delay: 0.2,
+  opacity: 1,
+  rotate: 0,
+  scale: 1,
+  ease: "power2.inOut",
+  transformOrigin: "top",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".designer-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+// right
+gsap.set(".team2", {
+  opacity: 0,
+  rotate: -45,
+  scale: 0.5
+});
+gsap.to(".team2", {
+  duration: 1.6,
+  delay: 0.2,
+  opacity: 1,
+  rotate: 0,
+  scale: 1,
+  ease: "power2.inOut",
+  transformOrigin: "top",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".designer-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
+// Projects section - Title
+gsap.set(".projects-section .title", {
+  y: -200,
+  opacity: 0
+});
+gsap.to(".projects-section .title", {
+  duration: 1.6,
+  y: 0,
+  opacity: 1,
+  ease: "power2.inOut",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".projects-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
+// Projects section - Left
+gsap.set(".pbox-left", {
+  opacity: 0,
+  x: -800
+});
+gsap.to(".pbox-left", {
+  duration: 1.6,
+  x: 0,
+  opacity: 1,
+  scale: 1,
+  ease: "power2.inOut",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".projects-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
+// Projecr section - Right
+gsap.set(".pbox-right", {
+  x: 500
+});
+gsap.to(".pbox-right", {
+  duration: 1.6,
+  x: 0,
+  ease: "power2.inOut",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".projects-section",
+    start: "top center",
+    end: "center",
+  }
+});
+
+// Project section - content section
+gsap.set(".project-content", {
+  x: -200,
+  y: -200,
+  opacity: 0
+});
+gsap.to(".project-content", {
+  duration: 1.6,
+  x: 0,
+  y: 0,
+  opacity: 1,
+  delay: 0.2,
+  ease: "power2.inOut",
+  yoyo: true,
+  scrollTrigger: {
+    trigger: ".projects-section",
+    start: "top center",
+    end: "center",
+    markers: false
+  }
+});
+
   }
 
 }

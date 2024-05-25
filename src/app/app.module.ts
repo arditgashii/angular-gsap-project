@@ -7,12 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AboutUsComponent } from './views/about-us/about-us.component';
 import { ContactUsComponent } from './views/contact-us/contact-us.component';
+import { NavbarComponent } from './views/navbar/navbar.component';
+import { FooterComponent } from './views/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AboutUsComponent,
-    ContactUsComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ nav {
     top: 0;
     width: 100%;
     height: 40px;
-    background: #000;
+    background: #ffedcf;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +69,7 @@ nav ul li {
 }
 
 nav ul li a {
-	color: #fafafa;
+	color: black;
 	font-size: 2em;
 	text-decoration: none;
 	font-weight: 500;
@@ -84,7 +84,7 @@ nav ul li a:after {
 	position: absolute;
 	height: 3px;
 	border-radius: 5px;
-	background: #fff;
+	background: black;
 	bottom: -10px;
 	left: 0;
 	transform-origin: left;
@@ -113,7 +113,7 @@ nav h2 {
 	left: 5%;
 	opacity: 0;
 	pointer-events: none;
-	color: #fff;
+	color: black;
 	font-size: 2em;
 }
 
@@ -123,7 +123,7 @@ nav .close div::after {
 	position: absolute;
 	width: 30px;
 	height: 4px;
-	background: #fff;
+	background: black;
 	transition: background .5s ease;
 }
 
