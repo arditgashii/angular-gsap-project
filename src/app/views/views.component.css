@@ -106,6 +106,10 @@
 	  }
 	  
 	  @media (max-width: 767px) {
+
+		.container-fluid {
+			height: 75vh;
+		}
 		.project-box.big.pbox-right {
 			height: 100%;
 		}
@@ -459,10 +463,8 @@ section {
 .project-content .bg-img {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 35%;
-  height: 50vh;
   z-index: -1;
+  opacity: 0.3;
 }
 .project-content p {
   margin-bottom: 8px;
@@ -638,9 +640,9 @@ section {
 	  top: -8px;
 	}
 	p {
-	  margin-bottom: 16px;
-	  font-size: 12px;
-	  line-height: 18px;
+	    font-size: 10px;
+        line-height: 12px;
+        padding: 5%;
 	}
 	.paragraph p:first-child:first-letter {
 	  font-size: 20px;
@@ -679,11 +681,11 @@ section {
 	  position: relative;
 	}
 	.banner-text {
-	  padding: 64px 0 0 48px;
+	  padding: 13% 0 0 48px; 
 	  max-width: 100%;
 	}
 	.banner-text h2 {
-	  font-size: 36px;
+	  font-size: 30px;
 	}
 	.banner-text h3 {
 	  font-size: 14px;
@@ -735,15 +737,10 @@ section {
 	  padding-inline: 2px;
 	}
 	.project-content p {
-	  font-size: 8px;
-	  line-height: 13px;
-	  margin: 10%;
+		font-size: 8px;
+        line-height: 7px;
+        margin: 6%;
 	}
-
-	.project-content .bg-img {
-		width: 100%;
-		opacity: 0.5;
-	  }
 	.project-content .common-btn {
 	  padding: 1px 7px;
 	  margin-right: 14px;

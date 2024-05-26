@@ -131,7 +131,7 @@
 
     @media  (max-width: 767px) {
         .contact-us {
-            padding-block: 40px;
+            padding: 10%;
           }
           .contact-us h4 {
             margin-bottom: 24px;
@@ -155,7 +155,7 @@
           }
           .contact-info {
             padding: 32px 32px 42px;
-            margin-right: 12px;
+            width: 100%;
           }
           .contact-info h3 {
             margin-bottom: 16px;
@@ -170,5 +170,9 @@
           .contact-border {
             left: 12px;
             top: -12px;
+          }
+          .contact-box {
+            height: 100%;
+            width: 100%;
           }
     }
