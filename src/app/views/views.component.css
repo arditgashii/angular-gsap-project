@@ -124,13 +124,9 @@
 		  }
 
 		  .header {
-			position: absolute;
-			transform: translate(-50%, -50%);
-			z-index: 1;
+			opacity: 0.5;
 			display: flex;
 			flex-direction: column;
-			padding: 20px;
-			border-radius: 10px;
 		  }
 		  
 		  .letterwrapper {
@@ -139,7 +135,7 @@
 		  }
 
 		  h4 {
-			font-size: 3.3em;
+			font-size: 3.2em;
 			font-weight: 700;
 		  }
 
@@ -704,7 +700,7 @@ section {
   
 	/* banner */
 	.banner {
-	  height: 50vh;
+	  height: 80vh;
 	}
 	.banner-box {
 	  padding: 0px;
@@ -734,6 +730,7 @@ section {
 	/* company */
 	.company-section {
 	  padding-top: 60px;
+	  height: 90vh;
 	}
 	.compy-box {
 	  margin-right: 16px;
@@ -746,6 +743,7 @@ section {
 	/* Designer */
 	.designer-section {
 	  padding-top: 140px;
+	  height: 90vh;
 	}
 	.designer-box {
 	  height: 300px;
@@ -763,6 +761,7 @@ section {
 	/* projects */
 	.projects-section {
 	  padding-top: 72px;
+	  height: 65vh;
 	}
 	.project-box,
 	.project-box.big {
